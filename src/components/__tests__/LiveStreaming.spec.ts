@@ -6,6 +6,6 @@ import LiveStreaming from "../LiveStreaming.vue";
 describe("LiveStreaming", () => {
   it("renders properly", () => {
     const wrapper = mount(LiveStreaming);
-    expect(wrapper.text()).toContain("Quaresma's Live");
+    expect(wrapper.text()).toContain("LIVE");
   });
 });

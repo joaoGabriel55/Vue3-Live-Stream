@@ -3,11 +3,13 @@ import Hls from "hls.js";
 
 type LiveStreamParams = {
   livePlayer: HTMLMediaElement | any;
+  onFulfilled: () => void;
   onError: () => void;
 };
 
 export default function useLiveStream({
   livePlayer,
+  onFulfilled,
   onError,
 }: LiveStreamParams): void {
   const canPlayType =
@@ -23,8 +25,8 @@ export default function useLiveStream({
     hls.attachMedia(livePlayer);
 
     hls.on(Hls.Events.MANIFEST_PARSED, () => {
-      livePlayer.muted = false;
       livePlayer.play();
+      onFulfilled();
     });
 
     hls.on(Hls.Events.ERROR, () => {

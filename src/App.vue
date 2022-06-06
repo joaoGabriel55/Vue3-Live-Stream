@@ -3,7 +3,9 @@ import LiveStreaming from "./components/LiveStreaming.vue";
 </script>
 
 <template>
-  <h1>Quaresma's Live</h1>
+  <header>
+    <h1>Quaresma's Live</h1>
+  </header>
   <main>
     <LiveStreaming />
   </main>
@@ -39,18 +41,12 @@ import LiveStreaming from "./components/LiveStreaming.vue";
 
   header {
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    justify-content: center;
   }
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
+  button {
+    cursor: pointer;
+    border: none;
   }
 }
 </style>
