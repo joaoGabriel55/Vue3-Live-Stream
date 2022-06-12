@@ -9,7 +9,6 @@ const liveStreamError = ref<boolean>(false);
 onMounted(() => {
   useLiveStream({
     livePlayer: livePlayerRef.value,
-    onFulfilled: () => {},
     onError: () => {
       liveStreamError.value = true;
     },
@@ -29,7 +28,7 @@ function toggleSound() {
 
 <template>
   <div class="video-player" v-if="!liveStreamError">
-    <video ref="livePlayerRef" :muted="true"></video>
+    <video ref="livePlayerRef" muted></video>
     <div class="bottom-bar">
       <p class="water-mark">LIVE</p>
       <button class="sound-button" @click="toggleSound">
